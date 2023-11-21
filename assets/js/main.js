@@ -24,6 +24,14 @@ const weatherAPI = function getAPI() {
 
     <p>Obtained at ${obtDate.getHours()}:${obtDate.getMinutes()}, ${obtDate.getDate()} ${date[obtDate.getMonth()]} ${obtDate.getFullYear()}</p>`
 
+    if(obtDate.getMinutes()<10){
+        header.innerHTML = `<h1>Weather in ${json.name}, ${json.sys.country}</h1>
+    <p><img src="http://openweathermap.org/img/w/${json.weather[0].icon}.png" alt="weather icon">${json.main.temp.toFixed(0)}°C</p>
+    <p>${json.weather[0].description}</p>
+
+    <p>Obtained at ${obtDate.getHours()}:0${obtDate.getMinutes()}, ${obtDate.getDate()} ${date[obtDate.getMonth()]} ${obtDate.getFullYear()}</p>`
+    }
+
     backupAPI = {...json}
 
     const options = {
